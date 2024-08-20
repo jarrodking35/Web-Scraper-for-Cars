@@ -10,8 +10,6 @@ first_run = True
 buttons_len = 0
 def find_all_cars(driver):
     global first_run, buttons_len
-    if buttons_len >= 100:
-        return False
 
     buttons = driver.find_elements(By.CLASS_NAME, "scct--image-gallery__image")
     if first_run:

@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys # lets me do the Keys.Enter
 from selenium.webdriver.support.ui import WebDriverWait # lets us use the wait call
 from selenium.webdriver.support import expected_conditions as EC # lets us use the wait call
 import time
+import csv
 from car_facts import get_car_facts
 from expand_search import find_all_cars
 
@@ -68,7 +69,7 @@ WebDriverWait(driver, 100).until(
             EC.presence_of_element_located((By.ID, "distanceSelect"))
         )
 element = driver.find_element(By.ID, "distanceSelect")
-driver.execute_script("arguments[0].setAttribute('value', '500')", element)
+driver.execute_script("arguments[0].setAttribute('value', '100')", element)
 driver.execute_script("var event = new Event('change', { bubbles: true }); arguments[0].dispatchEvent(event);", element)
 
 # wait for new page to load
@@ -86,6 +87,7 @@ WebDriverWait(driver, 100).until(
 
 # start looping through the cars
 buttons = driver.find_elements(By.CLASS_NAME, "scct--image-gallery__image")
+car_info = [[]]
 for index in range(len(buttons)):
     try:
         # Re-find the elements in case the page has changed
@@ -98,6 +100,7 @@ for index in range(len(buttons)):
         # -----------------------------------------------
         # GET ALL THE INFORMATION I WANT FROM A CARS PAGE
         array = get_car_facts(driver)
+        car_info.append(array)
         print(array)
         # -----------------------------------------------
 
@@ -109,8 +112,13 @@ for index in range(len(buttons)):
         print(f"Element at index {index} became stale.")
         continue  # Skip to the next iteration
 
-# most milage is 75k
-time.sleep(100)
+file_path = 'output.csv'
+
+# Write arrays to the CSV file
+with open(file_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(car_info)
+
 driver.quit()
 
 
