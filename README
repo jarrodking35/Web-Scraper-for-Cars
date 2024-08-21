@@ -1,2 +1,8 @@
+This project was designed to actually help me find a car in real life. I needed a way to take in a lot of information and sift through it quickly so I built a small web scraper to go on carmax and output a csv file
+that contains  price, milage, mpg, engine/gas, drive type, transmission, color, and the url. With this, I can bypass the normal car comparing tool on carmax and compare many more than 6 cars at once. While this is not 
+all the information I need to make a decision on a car, it does include key points that allow me to immediately rule out cars such as how many cylinders the engine is, what kind of transmission it has, and if it has 
+Four Wheel Drive or not. With this, I can skip a lot of the time it would take to tediously compare cars. 
+
+
 https://www.youtube.com/watch?v=NB8OceGZGjA
     - This is a source I used to learn about selenium and I followed tutorials for tutorial.py and cookieclicker.py
