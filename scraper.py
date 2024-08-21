@@ -22,6 +22,7 @@ driver.get("https://www.carmax.com/cars/chevrolet/colorado")
 
 store_setup(driver)
 
+# distance is set to 100 miles right now
 set_distance(driver)
 
 wait_for_loading(driver)
@@ -45,7 +46,6 @@ for index in range(len(buttons)):
         # GET ALL THE INFORMATION I WANT FROM A CARS PAGE
         array = get_car_facts(driver)
         car_info.append(array)
-        print(array)
         # -----------------------------------------------
 
         # Optionally, wait for the page to load or perform other actions
