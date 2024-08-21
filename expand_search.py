@@ -2,7 +2,15 @@ from utils import *
 
 first_run = True
 buttons_len = 0
+
 def find_all_cars(driver):
+    '''
+    This method is used to click the See More Matches button to pull up more cars. It waits for all
+    of the new cars to load so that it can maintain an accurate count of the total cars available
+
+    This method returns True if the button was able to be clicked, and it returns False if the button
+    was never clicked
+    '''
     global first_run, buttons_len
 
     buttons = driver.find_elements(By.CLASS_NAME, "scct--image-gallery__image")

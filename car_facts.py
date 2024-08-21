@@ -1,6 +1,11 @@
 from utils import *
 
 def get_car_facts(driver):
+    '''
+    This method returns an array filled with car information:
+    price, milage, mpg, engine/gas, drive type, transmission, color, "", "", url
+
+    '''
     array = []
     # get the price of the car and the mileage
     WebDriverWait(driver, 100).until(
@@ -20,6 +25,7 @@ def get_car_facts(driver):
     # element = driver.find_element(*locator)
     # driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
+    # Gets the rest of the car facts
     first_element = driver.find_element(By.ID, "car-page-tombstone-section")
     child_elements = first_element.find_elements(By.XPATH, "./*")
     for element in child_elements:
@@ -28,8 +34,6 @@ def get_car_facts(driver):
     
     array.append(driver.current_url)
     return array
-
-# array should look like: price, milage, mpg, engine/gas, drive type, transmission, color, "", ""
 
 # things to take in:
 # - mpg ✔
