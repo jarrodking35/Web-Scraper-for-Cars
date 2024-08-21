@@ -1,17 +1,9 @@
-from selenium import webdriver # boiler plate
-from selenium.webdriver.chrome.service import Service # boiler plate
-from selenium.webdriver.common.by import By # how I can search for something
-from selenium.webdriver.common.keys import Keys # lets me do the Keys.Enter 
-from selenium.webdriver.support.ui import WebDriverWait # lets us use the wait call
-from selenium.webdriver.support import expected_conditions as EC # lets us use the wait call
-import time
-import csv
+from utils import *
 from car_facts import get_car_facts
 from expand_search import find_all_cars
 
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
-
 driver.get("https://www.carmax.com/cars/toyota/tacoma")
 
 # check that I can click the button Distance or Shipping
@@ -120,13 +112,3 @@ with open(file_path, mode='w', newline='') as file:
     writer.writerows(car_info)
 
 driver.quit()
-
-
-'''
-Here is what I need to do:
-   - I need to have selenium start at a certain car location, and search in a 100 mile radius (DONE)
-   - I need selenium to gather data on each car
-      -- I need to first print all the information im going to use to the console
-   - I want to export this data into a csv file
-   - Then I can think about sorting the data, maybe some data analytics stuff available here
-'''
