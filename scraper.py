@@ -16,7 +16,9 @@ def wait_for_loading(driver):
 
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service)
-driver.get("https://www.carmax.com/cars/toyota/tacoma")
+driver.get("https://www.carmax.com/cars/chevrolet/colorado")
+# https://www.carmax.com/cars/toyota/tacoma
+# https://www.carmax.com/cars/chevrolet/colorado
 
 store_setup(driver)
 
@@ -55,6 +57,6 @@ for index in range(len(buttons)):
         continue  # Skip to the next iteration
 
 
-output_format("output.csv", car_info)
+output_format("colorado.csv", car_info)
 
 driver.quit()
