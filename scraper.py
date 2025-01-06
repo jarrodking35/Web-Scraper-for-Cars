@@ -27,6 +27,9 @@ set_distance(driver)
 
 wait_for_loading(driver)
 
+print("Waiting")
+time.sleep(15)
+
 while find_all_cars(driver) == True:
     continue
 
